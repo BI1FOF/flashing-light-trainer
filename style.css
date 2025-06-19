@@ -1,0 +1,353 @@
+﻿/* ===== 全局样式重置 ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== 页面主体样式 ===== */
+body {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    color: #e6e6e6;
+    line-height: 1.5;
+}
+
+/* ===== 容器布局 ===== */
+.container {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ===== 控制面板样式 ===== */
+.control-panel {
+    width: 100%;
+    margin-bottom: 20px;
+    background: rgba(30, 30, 46, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(80, 80, 120, 0.3);
+}
+
+/* ===== 文本输入区域 ===== */
+#inputText {
+    width: 100%; 
+    height: 100px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid rgba(60, 60, 90, 0.8);
+    background-color: rgba(25, 25, 40, 0.8);
+    color: #fff;
+    outline: none;
+    resize: vertical;
+    font-family: Consolas, monospace;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-radius: 6px;
+}
+
+#inputText::placeholder {
+    color: #a0a0c0;
+}
+
+/* ===== 按钮行布局 ===== */
+.button-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+/* ===== 通用按钮样式 ===== */
+.control-btn {
+    padding: 12px 0;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    background-color: #2d2d42;
+    color: #ddd;
+    flex: 1;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.control-btn:hover {
+    background-color: #3a3a55;
+}
+
+/* ===== 播放按钮样式 ===== */
+#playButton {
+    background-color: #2E7D32;
+    color: white;
+}
+
+#playButton:hover {
+    background-color: #3a8e3e;
+}
+
+/* ===== 重置按钮样式 ===== */
+#resetButton {
+    background-color: #444;
+}
+
+#resetButton:hover {
+    background-color: #555;
+}
+
+/* ===== 特殊按钮样式 ===== */
+.special-btn {
+    padding: 10px 0;
+    background: #3a3a5a;
+    color: #c0d0ff;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    flex: 1;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.special-btn:hover {
+    background: #45456a;
+}
+
+/* ===== 乱码按钮样式 ===== */
+#randomButton {
+    background: #7a6a10;
+    color: #fff9a0;
+}
+
+#randomButton:hover {
+    background: #8c7a15;
+}
+
+#settingsButton {
+    padding: 10px 0;
+    font-size: 15px;
+    background-color: #1A237E;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+
+#settingsButton:hover {
+    background-color: #232d9e;
+}
+
+/* ===== 灯光圆圈容器 ===== */
+.circle-container {
+    width: 260px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto 25px;
+    background: rgba(20, 20, 35, 0.7);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 
+                inset 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+/* ===== 摩尔斯灯光圆圈 ===== */
+#morseCircle {
+    width: 220px;
+    height: 220px;
+    background-color: #000;
+    border-radius: 50%;
+    border: 1px solid #333;
+    transition: background-color 0.1s;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* ===== 对话框遮罩 ===== */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* ===== 对话框内容 ===== */
+.dialog-content {
+    background: linear-gradient(to bottom, #252540, #1e1e38);
+    padding: 22px;
+    width: 90%;
+    max-width: 340px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(100, 100, 150, 0.3);
+}
+
+/* 信息显示样式 */
+.info-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    width: 100%;
+    background: rgba(25, 25, 40, 0.8);
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-label {
+    color: #ddd;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.info-value {
+    color: #ddd;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: center;
+    font-size: 17px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* ===== 对话框标题 ===== */
+.dialog-title {
+    text-align: center;
+    margin-bottom: 22px;
+    color: #e0e0ff;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ===== 对话框行布局 ===== */
+.dialog-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(40, 40, 60, 0.4);
+    border-radius: 6px;
+}
+
+.dialog-label {
+    flex: 1;
+    font-size: 16px;
+    color: #c0c0e0;
+}
+
+/* ===== 数字控制组件 ===== */
+.number-control {
+    display: flex;
+    align-items: center;
+}
+
+.number-btn {
+    width: 40px;
+    height: 40px;
+    background-color: #3a3a5a;
+    color: #ddd;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.number-btn:hover {
+    background-color: #4a4a6a;
+}
+
+.number-input {
+    width: 70px;
+    height: 40px;
+    margin: 0 10px;
+    padding: 0 10px;
+    text-align: center;
+    background-color: #2a2a3a;
+    color: #fff;
+    border: 1px solid #444;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* ===== 对话框按钮区域 ===== */
+.dialog-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.dialog-btn {
+    flex: 1;
+    padding: 12px 0;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.letter-btn {
+    background-color: #2E7D32;
+    color: white;
+}
+
+.letter-btn:hover {
+    background-color: #3a8e3e;
+}
+
+.mixed-btn {
+    background-color: #1A237E;
+    color: white;
+}
+
+.mixed-btn:hover {
+    background-color: #232d9e;
+}
+
+.cancel-btn {
+    background-color: #555;
+    color: #ddd;
+}
+
+.cancel-btn:hover {
+    background-color: #666;
+}
+
+/* 下拉选择框样式 */
+select {
+    background-color: #2a2a3a;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 8px;
+    width: 100%;
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 
+        Program: 无存储不联网灯光练习器
+        Author: Xu Zhen (BI1FOF)
+        Date: 2025-06-19
+        Version: 1.0
+        Description: 摩尔斯电码灯光练习工具，支持屏幕灯光和闪光灯模式
+        Features:
+          - 完全离线运行，无数据存储
+          - 可调节码速(15-60)
+          - 支持字码/混码随机报文生成
+          - 屏幕灯光和闪光灯双模式
+          - 勤务符号自动插入
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>无存储不联网灯光练习器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="control-panel">
+            <!-- 报文输入区域 -->
+            <textarea id="inputText" placeholder="请输入报文..." maxlength="1000"></textarea>
+            
+            <div class="button-row">
+                <button class="special-btn" id="callButton">[呼叫]</button>
+                <button class="special-btn" id="endButton">[完结]</button>
+                <button class="special-btn" id="randomButton">乱码</button>
+            </div>
+            
+            <div class="button-row">
+                <button id="playButton" class="control-btn">播放</button>
+                <button id="resetButton" class="control-btn">清空</button>
+            </div>
+            
+            <!-- 设置 -->
+            <div class="button-row">
+                <button id="settingsButton">设置</button>
+            </div>
+
+            <!-- 信息显示区域 -->
+            <div class="info-display">
+                <div class="info-item">
+                    <div class="info-label">码速：</div>
+                    <div id="speedValue" class="info-value">45</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">灯光：</div>
+                    <div id="lightModeValue" class="info-value">屏幕</div>
+                </div>
+            </div>
+
+            <!-- 摩尔斯灯光显示区域 -->
+            <div class="circle-container">
+                <div id="morseCircle"></div>
+            </div>
+        </div>
+
+        <!-- 随机报文生成对话框 -->
+        <div id="randomDialog" class="dialog-overlay" style="display:none;">
+            <div class="dialog-content">
+                <div class="dialog-title">生成乱码报</div>
+                
+                <div class="dialog-row">
+                    <div class="dialog-label">乱码组数：</div>
+                    <div class="number-control">
+                        <button class="number-btn" id="decreaseBtn">-</button>
+                        <input type="number" id="groupCount" class="number-input" value="10" min="1" max="50">
+                        <button class="number-btn" id="increaseBtn">+</button>
+                    </div>
+                </div>
+                
+                <div class="dialog-buttons">
+                    <button id="letterBtn" class="dialog-btn letter-btn">字码</button>
+                    <button id="mixedBtn" class="dialog-btn mixed-btn">混码</button>
+                    <button id="cancelBtn" class="dialog-btn cancel-btn">取消</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 设置对话框 -->
+        <div id="settingsDialog" class="dialog-overlay" style="display:none;">
+            <div class="dialog-content">
+                <div class="dialog-title">设置</div>
+                
+                <div class="dialog-row">
+                    <div class="dialog-label">码速：</div>
+                    <div class="number-control">
+                        <button class="number-btn" id="speedDecreaseBtn">-</button>
+                        <input type="number" id="speedInput" class="number-input" value="45" min="15" max="60">
+                        <button class="number-btn" id="speedIncreaseBtn">+</button>
+                    </div>
+                </div>
+                
+                <div class="dialog-row">
+                    <div class="dialog-label">灯光模式：</div>
+                    <div class="number-control">
+                        <select id="lightModeSelect" style="width: 100%; padding: 8px; background-color: #2a2a3a; color: #fff; border: 1px solid #444; border-radius: 5px;">
+                            <option value="screen">屏幕</option>
+                            <option value="flashlight">闪光灯</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="dialog-buttons">
+                    <button id="settingsConfirmBtn" class="dialog-btn letter-btn">确定</button>
+                    <button id="settingsCancelBtn" class="dialog-btn cancel-btn">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
